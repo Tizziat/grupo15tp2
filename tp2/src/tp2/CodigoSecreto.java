@@ -270,7 +270,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
         
         int intento = Integer.parseInt(input);
         int codigo = Integer.parseInt(codigoSecreto);
-        
+                
         
         
         if (intento < codigo) { 
@@ -283,7 +283,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
     }
         
     
-
+    
     }//GEN-LAST:event_jtNumeroKeyTyped
 
     private void jPassword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPassword3ActionPerformed
