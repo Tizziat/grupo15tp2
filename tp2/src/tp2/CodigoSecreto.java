@@ -240,7 +240,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
 
     private void jtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNumeroKeyTyped
         
-    if (evt.getKeyChar() == '\n' || evt.getKeyChar() == '\r') {
+    if (evt.getKeyChar() == '\n') {
         
         // obtiene el contenido de jtnumero y almacenamos en la variable input, (el metodo .trim  elimina espacios o saltos de linea)   
         String input = jtNumero.getText();
