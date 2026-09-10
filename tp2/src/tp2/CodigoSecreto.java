@@ -4,6 +4,9 @@
  */
 package tp2;
 
+import java.net.MalformedURLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tizzi
@@ -278,27 +281,32 @@ public class CodigoSecreto extends javax.swing.JFrame {
         
         int intento = Integer.parseInt(input);
         int codigo = Integer.parseInt(codigoSecreto);
-                
+         
         
         
         if (intento < codigo) { 
             jlMensaje.setText("el número es mas alto que  " + intento);
-        } else if (intento > codigo)
+        } else if (intento > codigo){
             jlMensaje.setText("el número es mas bajo que  " + intento);
         } else {
             jlMensaje.setText("Has acertado el codigo secreto!!");
-            
+            JOptionPane.showMessageDialog(this,
+                    "¡Ganaste! - Cantidad de intentos: " + contadorIntentos);
+        
+        
             try{
                 java.net.URL url = new java.net.URL("https://images.vexels.com/media/users/3/202189/isolated/lists/4f3a5cb84297726d74d69dce22676f83-trofeo-numero-1-plano.png");
                 javax.swing.ImageIcon icon = new javax.swing.ImageIcon(url);
                 java.awt.Image img = icon.getImage().getScaledInstance(142, 142, java.awt.Image.SCALE_SMOOTH);
                 lblImagen.setIcon(new javax.swing.ImageIcon(img));
-            } catch(Exception e){
+            } catch(MalformedURLException e){
                 System.out.println("Error al cargar imagen: " + e.getMessage());
             }
-            
-//            javax.swing.JOptionPane.showMessageDialog(this, "Ganaste!, Código correcto: " + codigoSecreto + "Intentos totales: " + contadorIntentos, javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
     }
+   
+//            javax.swing.JOptionPane.showMessageDialog(this, "Ganaste!, Código correcto: " + codigoSecreto + "Intentos totales: " + contadorIntentos, javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    
         
     
 
