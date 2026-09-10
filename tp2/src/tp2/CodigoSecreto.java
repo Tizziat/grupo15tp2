@@ -26,6 +26,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
         java.util.Random random = new java.util.Random();
         int num = random.nextInt(900)+ 100;
         codigoSecreto = String.valueOf(num);
+        lblImagen.setIcon(null);
         
 
 //        ENMASCARADO
@@ -70,6 +71,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jtNumero = new javax.swing.JTextField();
         jpTrofeo = new javax.swing.JPanel();
+        lblImagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,6 +135,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
         jlMensaje.setText("- Por favor, ingrese un número en cada casillero");
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Revelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +144,9 @@ public class CodigoSecreto extends javax.swing.JFrame {
             }
         });
 
-        jtNumero.setBackground(new java.awt.Color(62, 67, 76));
+        jtNumero.setBackground(new java.awt.Color(30, 30, 30));
+        jtNumero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jtNumero.setToolTipText("");
         jtNumero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresa 3 números", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 24))); // NOI18N
         jtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -153,11 +158,11 @@ public class CodigoSecreto extends javax.swing.JFrame {
         jpTrofeo.setLayout(jpTrofeoLayout);
         jpTrofeoLayout.setHorizontalGroup(
             jpTrofeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 155, Short.MAX_VALUE)
+            .addComponent(lblImagen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
         );
         jpTrofeoLayout.setVerticalGroup(
             jpTrofeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 142, Short.MAX_VALUE)
+            .addComponent(lblImagen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Pristina", 0, 24)); // NOI18N
@@ -179,10 +184,10 @@ public class CodigoSecreto extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(jpTrofeo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(45, 45, 45))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,10 +209,10 @@ public class CodigoSecreto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpTrofeo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtNumero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(jpTrofeo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -234,7 +239,9 @@ public class CodigoSecreto extends javax.swing.JFrame {
     }//GEN-LAST:event_jPassword1ActionPerformed
 
     private void jtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNumeroKeyTyped
-        // TODO add your handling code here:  
+        
+    // jTextField PARA PONER LOS NUMEROS A ADIVINAR
+    
     String input = jtNumero.getText() + evt.getKeyChar();
     input = input.trim();
 
@@ -278,13 +285,23 @@ public class CodigoSecreto extends javax.swing.JFrame {
             jlMensaje.setText("el número es mas alto que  " + intento);
         } else if (intento > codigo)
             jlMensaje.setText("el número es mas bajo que  " + intento);
-    
         } else {
             jlMensaje.setText("Has acertado el codigo secreto!!");
+            
+            try{
+                java.net.URL url = new java.net.URL("https://images.vexels.com/media/users/3/202189/isolated/lists/4f3a5cb84297726d74d69dce22676f83-trofeo-numero-1-plano.png");
+                javax.swing.ImageIcon icon = new javax.swing.ImageIcon(url);
+                java.awt.Image img = icon.getImage().getScaledInstance(142, 142, java.awt.Image.SCALE_SMOOTH);
+                lblImagen.setIcon(new javax.swing.ImageIcon(img));
+            } catch(Exception e){
+                System.out.println("Error al cargar imagen: " + e.getMessage());
+            }
+            
+//            javax.swing.JOptionPane.showMessageDialog(this, "Ganaste!, Código correcto: " + codigoSecreto + "Intentos totales: " + contadorIntentos, javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }
         
     
-    
+
     }//GEN-LAST:event_jtNumeroKeyTyped
 
     private void jPassword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPassword3ActionPerformed
@@ -292,7 +309,9 @@ public class CodigoSecreto extends javax.swing.JFrame {
     }//GEN-LAST:event_jPassword3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        //BOTON DE REVELACIONES DE LOS DOS PRIMEROS PASSWORD
+        
         if (contadorAyudas == 0) {
             jPassword1.setEchoChar((char)0);
             contadorAyudas++;
@@ -341,5 +360,6 @@ public class CodigoSecreto extends javax.swing.JFrame {
     private javax.swing.JPanel jpCodigo;
     private javax.swing.JPanel jpTrofeo;
     private javax.swing.JTextField jtNumero;
+    private javax.swing.JLabel lblImagen;
     // End of variables declaration//GEN-END:variables
 }
