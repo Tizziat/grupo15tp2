@@ -240,20 +240,18 @@ public class CodigoSecreto extends javax.swing.JFrame {
 
     private void jtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNumeroKeyTyped
         
-    // jTextField PARA PONER LOS NUMEROS A ADIVINAR
-    
-    String input = jtNumero.getText() + evt.getKeyChar();
-    input = input.trim();
-
-    // SOLO evaluar si el usuario ya escribió exactamente 3 dígitos    
-    if (input.length() == 3) {
+    if (evt.getKeyChar() == '\n' || evt.getKeyChar() == '\r') {
         
-        // validando que solo sean numeros, mensaje advertencia!
-        if (!input.matches("\\d+")) {
-            jlMensaje.setText("Por favor, ingresa exactamente 3 números.");
+        // obtiene el contenido de jtnumero y almacenamos en la variable input, (el metodo .trim  elimina espacios o saltos de linea)   
+        String input = jtNumero.getText();
+        input = input.trim();
+       
+        // validando que solo sean numeros, mensaje advertencia!    
+        // solo evaluar si el usuario ya escribió exactamente 3 dígitos    
+        if (input.length() != 3 || !input.matches("\\d+")) {
+            jlMensaje.setText("Por favor, ingresa exactamente 3 números!!!");
             return;
-        }
-        
+}
         contadorIntentos++;
         
         // desenmascarando aciertos individuales
@@ -283,7 +281,7 @@ public class CodigoSecreto extends javax.swing.JFrame {
         
         if (intento < codigo) { 
             jlMensaje.setText("el número es mas alto que  " + intento);
-        } else if (intento > codigo)
+        } else if (intento > codigo) {
             jlMensaje.setText("el número es mas bajo que  " + intento);
         } else {
             jlMensaje.setText("Has acertado el codigo secreto!!");
@@ -296,12 +294,11 @@ public class CodigoSecreto extends javax.swing.JFrame {
             } catch(Exception e){
                 System.out.println("Error al cargar imagen: " + e.getMessage());
             }
-            
-//            javax.swing.JOptionPane.showMessageDialog(this, "Ganaste!, Código correcto: " + codigoSecreto + "Intentos totales: " + contadorIntentos, javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        
+       
+        }
     }
         
-    
-
     }//GEN-LAST:event_jtNumeroKeyTyped
 
     private void jPassword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPassword3ActionPerformed
